@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"  
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+       xsi:schemaLocation="http://www.springframework.org/schema/beans        
+       classpath:/org/springframework/beans/factory/xml/spring-beans-3.0.xsd"  
+             default-lazy-init="true">
+   
+   
+   <!-- set注入 -->      
+<!--
+<bean>中的name属性是class属性的一个别名，class属性指类的全名，因为在set_injection中有一个公共属性springdao，所以要在
+<bean>标签中创建一个<property>标签指定SpringDao。<property>标签中的name就是set_injection类中的SpringDao属性名，ref指下面
+<bean name="springDao"...>，这样其实spring将SpringDaoImpl对象实例化并且调用set_injection的setSpringDao方法将SpringDao注入：
+-->
+     <!--配置bean,配置后该类由spring管理--> 
+     <bean id="set_injection" class="com.wynne.java.set_injection"> 
+         <!--(1)依赖注入,配置当前类中相应的属性-->
+         <property name="springDao" ref="springDao"></property>
+     </bean>
+     <bean name="springDao" class="com.wynne.DaoImpl.SpringDao"/>
+     
+     <!-- 构造器注入 -->    
+     <bean id="constructor_injection" class="com.wynne.java.constructor_injection">
+       <constructor-arg ref="c_springDao"></constructor-arg>
+       <constructor-arg ref="User"></constructor-arg>
+     </bean>
+     <bean name="c_springDao" class="com.wynne.DaoImpl.SpringDao"/>
+     <bean name="User" class="com.wynne.DaoImpl.User"/>
+</beans>
