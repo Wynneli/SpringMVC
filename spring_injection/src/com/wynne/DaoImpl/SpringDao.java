@@ -1,8 +1,8 @@
 package com.wynne.DaoImpl;
 
-import com.wynne.IDao.springDao;
+import com.wynne.IDao.IspringDao;
 
-public class SpringDao implements springDao {
+public class SpringDao implements IspringDao {
 	private String name;
 	public void test(String name){
 		System.out.println("set_injection successsful!");

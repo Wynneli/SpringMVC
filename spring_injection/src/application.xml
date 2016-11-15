@@ -5,7 +5,8 @@
              default-lazy-init="true">
    
    
-   <!-- set注入 -->      
+   <!-- set注入 -->  
+   <!-- begin -->    
 <!--
 <bean>中的name属性是class属性的一个别名，class属性指类的全名，因为在set_injection中有一个公共属性springdao，所以要在
 <bean>标签中创建一个<property>标签指定SpringDao。<property>标签中的name就是set_injection类中的SpringDao属性名，ref指下面
@@ -17,12 +18,61 @@
          <property name="springDao" ref="springDao"></property>
      </bean>
      <bean name="springDao" class="com.wynne.DaoImpl.SpringDao"/>
+     <!-- end -->
      
-     <!-- 构造器注入 -->    
+     
+     
+     <!-- 构造器注入 -->
+     <!-- begin -->    
      <bean id="constructor_injection" class="com.wynne.java.constructor_injection">
-       <constructor-arg ref="c_springDao"></constructor-arg>
-       <constructor-arg ref="User"></constructor-arg>
+       <!-- <constructor-arg ref="c_springDao"></constructor-arg>
+       <constructor-arg ref="User"></constructor-arg> -->
+       
+       <!-- 解决构造参数的不确定性，你可能会遇到构造方法传入van书都是同类型的，为了分清楚那个该赋对应的值，则可以对应下面的处理 -->
+       <!-- 
+          需要特别注意的是下面定义参数的顺序按照：public constructor_injection(SpringDao springdao,User user)中定义函数的顺序来写，不然会报错
+        -->
+          <constructor-arg index="0" ref="c_springDao"></constructor-arg>
+          <constructor-arg index="1" ref="User"></constructor-arg>
+          
+          <!-- 下面的数是通过类型进行匹配的。如果不不是java中的数据类型，就把相应的实现类的数据类型写上去即可，详细如下 -->
+          <!--  <constructor-arg type="com.wynne.DaoImpl.SpringDao" ref="c_springDao"></constructor-arg>
+          <constructor-arg type="com.wynne.DaoImpl.User" ref="User"></constructor-arg>-->
      </bean>
      <bean name="c_springDao" class="com.wynne.DaoImpl.SpringDao"/>
      <bean name="User" class="com.wynne.DaoImpl.User"/>
+     <!-- end -->
+     
+     
+     
+     <!-- 实例工厂的方法注入 -->
+     <!-- beign -->
+        <bean id="Factory_injection" class="com.wynne.java.Factory_injection">
+           <!-- 使用实例工厂的方法注入对象 -->
+            <property name="springDao" ref="f_springDao"></property>
+        </bean>
+        <!--此处获取对象的方式是从工厂类中获取实例方法--> 
+          
+        <bean name="daoFactory" class="com.wynne.java.DaoFactory"/>
+       
+        <bean name="f_springDao" factory-bean="daoFactory" factory-method="getSpringDaoImpl"/>
+        <!-- 上面的这句配置给成下面的这一句运行结果也是一样的
+            <bean name="f_springDao" class="com.wynne.DaoImpl.SpringDao"/>
+         -->
+     <!-- end -->
+     
+     
+     
+     <!-- 静态工厂的方法注入 -->
+     <!-- beign -->
+        <bean id="Static_injection" class="com.wynne.java.Static_injection">
+           <!-- 使用实静态厂的方法注入对象 
+                            这个对象是Static_injection类中要注入的属性，可以试试改成不是已经定义成的对象的话会报错
+                            即只能是 private SpringDao StaticSpringDao中的对象才行
+           -->
+            <property name="StaticSpringDao" ref="s-staticSpringDao"></property>
+        </bean>
+        <!--此处获取对象的方式是从工厂类中获取静态方法-->  
+        <bean name="s-staticSpringDao" class="com.wynne.java.Stctic_DaoFactory" factory-method="getStaticSpringDaoImpl"></bean>
+     <!-- end -->
 </beans>

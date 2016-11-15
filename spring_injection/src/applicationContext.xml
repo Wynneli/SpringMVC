@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"  
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+       xsi:schemaLocation="http://www.springframework.org/schema/beans        
+       classpath:/org/springframework/beans/factory/xml/spring-beans-3.0.xsd"  
+             default-lazy-init="true">
+             
+             
+     <bean id="Teacher" class="com.wynne.Entity.Teacher">
+        <property name="car" ref="car"/>
+        <property name="office" ref="office"/>
+     </bean>
+     <bean id="office" class="com.wynne.Entity.office">
+         <property name="officeNo" value="109213"/>
+     </bean>
+     <bean id="car" class="com.wynne.Entity.car">
+         <property name="brand" value="宝马"/>
+         <property name="price" value="12000000"/>
+     </bean>
+</beans>

@@ -1,5 +1,5 @@
 package com.wynne.IDao;
 
-public interface springDao {
+public interface IspringDao {
   public void test(String name);
 }

@@ -9,7 +9,7 @@ import com.wynne.DaoImpl.User;
 public class constructor_injection {
    private User user;
    private SpringDao springdao;
-   public constructor_injection(User user,SpringDao springdao){
+   public constructor_injection(SpringDao springdao,User user){
 	   this.user=user;
 	   this.springdao=springdao;
 	   System.out.println("constrctor successful!");
