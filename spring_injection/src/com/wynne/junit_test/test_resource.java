@@ -4,14 +4,13 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.wynne.Entity.Qualifier.Teacher6;
+import com.wynne.Entity.Resource.Teacher7;
 
-public class test_Qualifier_constructor_method {
+public class test_resource {
 	 @Test
 	  public void test(){
 		  ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
-		  Teacher6 teacher6=(Teacher6)context.getBean("Teacher6");
-		  System.out.println(teacher6);
-		  
+		  Teacher7 teacher7=(Teacher7)context.getBean("Teacher7");
+		  System.out.println(teacher7);
 	  }
 }

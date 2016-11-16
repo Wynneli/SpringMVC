@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<beans xmlns="http://www.springframework.org/schema/beans"  
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
-       xsi:schemaLocation="http://www.springframework.org/schema/beans        
-       classpath:/org/springframework/beans/factory/xml/spring-beans-4.0.xsd"  
-             default-lazy-init="true">
-             
-    <!-- 该 BeanPostProcessor 将自动起作用，对标注 @Autowired 的 Bean 进行自动注入 -->
-   <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 
-         
-     <bean id="Teachers" class="com.wynne.Entity.Autowire.variable.Teachers"/>
-     <bean id="offices" class="com.wynne.Entity.Autowire.variable.offices">
-         <property name="officeNo" value="12321"/>
-         <property name="size" value="120m2"/>
-     </bean>
-     <bean id="cars" class="com.wynne.Entity.Autowire.variable.cars">
-         <property name="brand" value="奔驰"/>
-         <property name="price" value="1200"/>
-     </bean>
-</beans>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+ http://www.springframework.org/schema/context 
+ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    <context:component-scan base-package="com.wynne.Entity.component"/>
+     <context:component-scan base-package="com.wynne.Entity.Common"/>
+ </beans>

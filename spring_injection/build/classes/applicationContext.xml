@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<beans xmlns="http://www.springframework.org/schema/beans"  
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
-       xsi:schemaLocation="http://www.springframework.org/schema/beans        
-       classpath:/org/springframework/beans/factory/xml/spring-beans-4.0.xsd"  
-             default-lazy-init="true">
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+ http://www.springframework.org/schema/context 
+ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
              
      <!-- 传统的方式注入 -->     
      <bean id="Teacher" class="com.wynne.Entity.Autowired.Teacher">
@@ -68,6 +70,7 @@
          <property name="price" value="123213"/>
      </bean>
      
+   
       <!-- 使用@Qualifier在 成员变量使用-->
       <bean id="Teacher5" class="com.wynne.Entity.Qualifier.Teacher5"/>
       <bean id="office5" class="com.wynne.Entity.Common.office">
@@ -88,5 +91,31 @@
      <bean id="car6" class="com.wynne.Entity.Common.car">
          <property name="brand" value="qq"/>
          <property name="price" value="12"/>
+     </bean>
+     
+     
+     
+      <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+     <!-- 使用@Resource注入-->
+      <bean id="Teacher7" class="com.wynne.Entity.Resource.Teacher7"/>
+      <bean id="office7" class="com.wynne.Entity.Common.office">
+         <property name="officeNo" value="002"/>
+         <property name="size" value="190m2"/>
+     </bean>
+     <bean id="car7" class="com.wynne.Entity.Common.car">
+         <property name="brand" value="三菱"/>
+         <property name="price" value="250"/>
+     </bean>
+     
+     
+     <!-- 使用@PostConstruct和@ProDestory注入-->
+      <bean id="Teacher8" class="com.wynne.Entity.PostConstruct_PreDestory.Teacher8"/>
+      <bean id="office8" class="com.wynne.Entity.Common.office">
+         <property name="officeNo" value="003"/>
+         <property name="size" value="130m2"/>
+     </bean>
+     <bean id="car8" class="com.wynne.Entity.Common.car">
+         <property name="brand" value="雷克萨斯"/>
+         <property name="price" value="220"/>
      </bean>
 </beans>
