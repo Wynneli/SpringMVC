@@ -5,16 +5,15 @@
        classpath:/org/springframework/beans/factory/xml/spring-beans-4.0.xsd"  
              default-lazy-init="true">
              
-             
-     <bean id="Teacher" class="com.wynne.Entity.Teacher">
-        <property name="car" ref="car"/>
-        <property name="office" ref="office"/>
-     </bean>
-     <bean id="office" class="com.wynne.Entity.office">
+    <!-- 该 BeanPostProcessor 将自动起作用，对标注 @Autowired 的 Bean 进行自动注入 -->
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 
+         
+     <bean id="Teachers" class="com.wynne.Entity.Autowire.variable.Teachers"/>
+     <bean id="offices" class="com.wynne.Entity.Autowire.variable.offices">
          <property name="officeNo" value="109213"/>
          <property name="size" value="100m2"/>
      </bean>
-     <bean id="car" class="com.wynne.Entity.car">
+     <bean id="cars" class="com.wynne.Entity.Autowire.variable.cars">
          <property name="brand" value="宝马"/>
          <property name="price" value="12000000"/>
      </bean>

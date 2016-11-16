@@ -1,22 +1,27 @@
 package com.wynne.Entity;
 
 public class Teacher {
-	private String  car;
-	private String office;
-	public String getCar() {
+	private car car;
+	private office office;
+
+	public car getCar() {
 		return car;
 	}
-	public void setCar(String car) {
+
+	public void setCar(car car) {
 		this.car = car;
 	}
-	public String getOffice() {
+
+	public office getOffice() {
 		return office;
 	}
-	public void setOffice(String office) {
+
+	public void setOffice(office office) {
 		this.office = office;
 	}
+
 	public String toString(){
-		return "car"+car+"\n"+"office"+office;
+		return "car"+"\t"+car+"\n"+"office"+"\t"+office;
 	}
 
 }
