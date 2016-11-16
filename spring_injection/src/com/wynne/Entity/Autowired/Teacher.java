@@ -1,5 +1,5 @@
-package com.wynne.Entity;
-
+package com.wynne.Entity.Autowired;
+import com.wynne.Entity.Common.*;
 public class Teacher {
 	private car car;
 	private office office;

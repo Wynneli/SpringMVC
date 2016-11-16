@@ -6,15 +6,15 @@
              default-lazy-init="true">
              
     <!-- 该 BeanPostProcessor 将自动起作用，对标注 @Autowired 的 Bean 进行自动注入 -->
-    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 
+   <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 
          
      <bean id="Teachers" class="com.wynne.Entity.Autowire.variable.Teachers"/>
      <bean id="offices" class="com.wynne.Entity.Autowire.variable.offices">
-         <property name="officeNo" value="109213"/>
-         <property name="size" value="100m2"/>
+         <property name="officeNo" value="12321"/>
+         <property name="size" value="120m2"/>
      </bean>
      <bean id="cars" class="com.wynne.Entity.Autowire.variable.cars">
-         <property name="brand" value="宝马"/>
-         <property name="price" value="12000000"/>
+         <property name="brand" value="奔驰"/>
+         <property name="price" value="1200"/>
      </bean>
 </beans>

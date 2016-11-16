@@ -1,6 +1,6 @@
-package com.wynne.Entity.Autowire.variable;
+package com.wynne.Entity.Common;
 
-public class offices {
+public class office {
 	private String officeNo;
 	private String size;
 	public String getOfficeNo() {

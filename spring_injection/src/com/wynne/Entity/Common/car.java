@@ -1,6 +1,6 @@
-package com.wynne.Entity.Autowire.variable;
+package com.wynne.Entity.Common;
 
-public class cars {
+public class car {
 	private String brand;
 	private double  price;
 	public String getBrand() {
