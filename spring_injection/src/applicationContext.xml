@@ -56,4 +56,37 @@
          <property name="brand" value="兰博基尼"/>
          <property name="price" value="12"/>
      </bean>
+     
+     <!-- 使用@Qualifier在 set方法上注解-->
+      <bean id="Teacher4" class="com.wynne.Entity.Qualifier.Teacher4"/>
+      <bean id="office4" class="com.wynne.Entity.Common.office">
+         <property name="officeNo" value="345"/>
+         <property name="size" value="200m2"/>
+     </bean>
+     <bean id="car4" class="com.wynne.Entity.Common.car">
+         <property name="brand" value="大众"/>
+         <property name="price" value="123213"/>
+     </bean>
+     
+      <!-- 使用@Qualifier在 成员变量使用-->
+      <bean id="Teacher5" class="com.wynne.Entity.Qualifier.Teacher5"/>
+      <bean id="office5" class="com.wynne.Entity.Common.office">
+         <property name="officeNo" value="1231231"/>
+         <property name="size" value="180m2"/>
+     </bean>
+     <bean id="car5" class="com.wynne.Entity.Common.car">
+         <property name="brand" value="奥迪"/>
+         <property name="price" value="349"/>
+     </bean>
+     
+     <!-- 使用@Qualifier构造方法上使用-->
+      <bean id="Teacher6" class="com.wynne.Entity.Qualifier.Teacher6"/>
+      <bean id="office6" class="com.wynne.Entity.Common.office">
+         <property name="officeNo" value="001"/>
+         <property name="size" value="90m2"/>
+     </bean>
+     <bean id="car6" class="com.wynne.Entity.Common.car">
+         <property name="brand" value="qq"/>
+         <property name="price" value="12"/>
+     </bean>
 </beans>
