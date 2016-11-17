@@ -19,6 +19,9 @@
                        http://www.springframework.org/schema/task 
                        http://www.springframework.org/schema/task/spring-task-4.0.xsd">
     <context:annotation-config />
-        <context:component-scan base-package="com.wynne.Annotation.*" >
-    </context:component-scan>  
+        <context:component-scan base-package="com.wynne.Annotation.Controller"/>
+        <context:component-scan base-package="com.wynne.Annotation.Dao"/> 
+        <context:component-scan base-package="com.wynne.Annotation.IDao"/>
+        <context:component-scan base-package="com.wynne.Annotation.Service"/>
+        <context:component-scan base-package="com.wynne.Annotation.IService"/>   
 </beans>
