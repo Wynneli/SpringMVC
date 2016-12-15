@@ -35,7 +35,7 @@ import com.wynne.Annotation.IDao.IIocDao;
  * 
  * 等用于：
  * @Resource（name="myIocDao"）
- * private IIocDao xx;\
+ * private IIocDao xx;
  * 
  * 总结：@Resource的作用相当于@Autowired，只不过@Autowired按byType自动注入，
  * 如果发现找到多个bean，则，又按照byName方式比对，如果还有多个，则报出异常 而@Resource
